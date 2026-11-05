@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Proposta Comercial – Site Vinícius Rael</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #0a0f1a; --ink2: #111827; --gold: #f5b301; --gold-d: #c98d00;
+    --text: #1f2937; --muted: #6b7280; --line: #e5e7eb; --soft: #f7f5ef; --wa: #25d366;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); font-size: 10.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  h1, h2, h3, .display { font-family: 'Montserrat', sans-serif; }
+  .page { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; padding: 18mm 18mm 16mm; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .gold { color: var(--gold-d); }
+
+  /* cabeçalho / rodapé internos */
+  .top { display: flex; justify-content: space-between; align-items: center; font-size: 8pt; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8mm; }
+  .top b { color: var(--ink); }
+  .foot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: #9ca3af; border-top: 1px solid var(--line); padding-top: 3mm; }
+  .tag { display: inline-block; font-size: 7.5pt; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-d); background: #fff6d6; border: 1px solid #f5d77a; border-radius: 99px; padding: 1.2mm 3.5mm; }
+  h2 { font-size: 21pt; line-height: 1.15; color: var(--ink); margin: 4mm 0 3mm; }
+  .lead { font-size: 11pt; color: #4b5563; max-width: 155mm; }
+  h3 { font-size: 11.5pt; color: var(--ink); margin-bottom: 1.5mm; }
+  p.small, .small { font-size: 9pt; color: var(--muted); }
+
+  /* capa */
+  .cover { background: var(--ink); color: #fff; padding: 0; }
+  .cover .bg { position: absolute; inset: 0; background: url('../public/images/hero.webp') center/cover; opacity: .22; }
+  .cover .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,15,26,.55) 0%, rgba(10,15,26,.92) 55%, #0a0f1a 100%); }
+  .cover .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(245,179,1,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(245,179,1,.07) 1px, transparent 1px); background-size: 9mm 9mm; }
+  .cover .inner { position: relative; height: 100%; padding: 20mm 18mm; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 3mm; }
+  .brand .n { font-family: Montserrat; font-weight: 800; font-size: 11pt; letter-spacing: .04em; }
+  .brand .s { font-size: 6.5pt; letter-spacing: .32em; color: #9ca3af; text-transform: uppercase; }
+  .cover h1 { font-size: 36pt; line-height: 1.05; margin-top: 22mm; font-weight: 800; }
+  .cover h1 span { color: var(--gold); }
+  .cover .sub { font-size: 12.5pt; color: #cbd5e1; margin-top: 5mm; max-width: 140mm; }
+  .mock { margin-top: 12mm; border-radius: 3mm; overflow: hidden; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 20px 50px rgba(0,0,0,.55); background: #1b2435; }
+  .mock .bar { height: 6mm; display: flex; align-items: center; gap: 1.6mm; padding: 0 3mm; background: #1b2435; }
+  .mock .bar i { width: 2mm; height: 2mm; border-radius: 50%; background: #475569; display: block; }
+  .mock .bar .url { margin-left: 4mm; font-size: 6.5pt; color: #94a3b8; background: #0f172a; border-radius: 99px; padding: .6mm 4mm; }
+  .mock img { display: block; width: 100%; }
+  .cover .meta { margin-top: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; border-top: 1px solid rgba(255,255,255,.12); padding-top: 6mm; }
+  .cover .meta small { display: block; font-size: 7pt; letter-spacing: .18em; text-transform: uppercase; color: #94a3b8; margin-bottom: 1mm; }
+  .cover .meta b { font-size: 10.5pt; }
+
+  /* cards */
+  .cards { display: grid; gap: 4mm; }
+  .c3 { grid-template-columns: repeat(3, 1fr); }
+  .c2 { grid-template-columns: repeat(2, 1fr); }
+  .card { border: 1px solid var(--line); border-radius: 3mm; padding: 4mm; background: #fff; }
+  .card.soft { background: var(--soft); border-color: #eee6cf; }
+  .num { font-family: Montserrat; font-weight: 800; color: var(--gold); font-size: 15pt; line-height: 1; margin-bottom: 2mm; }
+  .icon { width: 8mm; height: 8mm; border-radius: 2mm; background: var(--ink); color: var(--gold); display: grid; place-items: center; font-weight: 800; font-family: Montserrat; font-size: 10pt; margin-bottom: 2.5mm; }
+
+  /* funil */
+  .flow { display: flex; align-items: stretch; gap: 2mm; margin: 7mm 0 3mm; }
+  .flow .step { flex: 1; text-align: center; background: var(--ink); color: #fff; border-radius: 3mm; padding: 4mm 2mm; position: relative; }
+  .flow .step b { display: block; font-family: Montserrat; font-size: 10pt; }
+  .flow .step span { font-size: 7.5pt; color: #94a3b8; }
+  .flow .step.g { background: var(--gold); color: var(--ink); }
+  .flow .step.g span { color: #5b4500; }
+  .flow .step.w { background: var(--wa); }
+  .flow .step.w span { color: #e9fff1; }
+  .flow .arr { align-self: center; color: var(--gold-d); font-weight: 800; font-size: 13pt; }
+  .callout { border-left: 1.2mm solid var(--gold); background: var(--soft); padding: 4mm 5mm; border-radius: 0 3mm 3mm 0; font-size: 10pt; }
+
+  /* screenshots */
+  .shots { display: grid; grid-template-columns: 1fr 40mm; gap: 5mm; align-items: start; margin-top: 6mm; }
+  .phone { border: 2mm solid #0a0f1a; border-radius: 6mm; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,.25); }
+  .phone img { display: block; width: 100%; }
+  .browser { border-radius: 2.5mm; overflow: hidden; border: 1px solid #d1d5db; box-shadow: 0 10px 25px rgba(0,0,0,.15); }
+  .browser .bar { background: #f3f4f6; height: 5mm; display: flex; gap: 1.4mm; align-items: center; padding: 0 2.5mm; }
+  .browser .bar i { width: 1.8mm; height: 1.8mm; border-radius: 50%; background: #cbd5e1; display: block; }
+  .browser img { display: block; width: 100%; }
+  .linkbox { display: flex; align-items: center; justify-content: space-between; gap: 4mm; background: var(--ink); color: #fff; border-radius: 3mm; padding: 4mm 5mm; margin-top: 5mm; }
+  .linkbox a { color: var(--gold); font-weight: 700; font-size: 12pt; text-decoration: none; font-family: Montserrat; }
+  .badge { font-size: 7pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; background: #fff3cd; color: #8a6200; border-radius: 99px; padding: 1mm 3mm; white-space: nowrap; }
+  ul.check { list-style: none; }
+  ul.check li { padding-left: 5.5mm; position: relative; margin: 1mm 0; font-size: 9pt; }
+  ul.check li::before { content: '✓'; position: absolute; left: 0; color: var(--gold-d); font-weight: 800; }
+  ul.x li::before { content: '•'; color: #9ca3af; }
+
+  /* marketing */
+  .kw { display: flex; flex-wrap: wrap; gap: 1.5mm; margin-top: 2mm; }
+  .kw span { font-size: 7.8pt; background: #fff; border: 1px solid #e7dcb8; border-radius: 99px; padding: .7mm 2.6mm; color: #5b4500; }
+  .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 4mm; }
+  .timeline .t { border-top: 1.2mm solid var(--gold); padding-top: 3mm; }
+  .timeline .t small { font-size: 7.5pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-d); }
+
+  /* preço */
+  .price { background: var(--ink); color: #fff; border-radius: 4mm; padding: 7mm 8mm; display: grid; grid-template-columns: 1fr 1.15fr; gap: 8mm; position: relative; overflow: hidden; }
+  .price::after { content: ''; position: absolute; right: -25mm; top: -25mm; width: 70mm; height: 70mm; border-radius: 50%; background: radial-gradient(circle, rgba(245,179,1,.28), transparent 70%); }
+  .price .val { font-family: Montserrat; font-weight: 800; font-size: 44pt; line-height: 1; color: var(--gold); }
+  .price .val sup { font-size: 16pt; vertical-align: top; position: relative; top: 2mm; margin-right: 1mm; }
+  .price ul.check li { font-size: 9.5pt; color: #e5e7eb; }
+  .price ul.check li::before { color: var(--gold); }
+  .pill { display: inline-block; margin-top: 3mm; font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: rgba(245,179,1,.15); color: var(--gold); border: 1px solid rgba(245,179,1,.4); border-radius: 99px; padding: 1mm 3.5mm; }
+  .steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .cta { margin-top: 4mm; display: flex; align-items: center; justify-content: space-between; background: var(--soft); border: 1px solid #eee6cf; border-radius: 3mm; padding: 5mm 6mm; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. CAPA ============ -->
+<section class="page cover">
+  <div class="bg"></div><div class="grid"></div><div class="shade"></div>
+  <div class="inner">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" width="34" height="34"><path d="M6 34h28M10 34V20h6v14M18 34V10h6v24M26 34V16h5v18" stroke="#f5b301" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><div class="n">VINÍCIUS <span style="color:#f5b301">RAEL</span></div><div class="s">Engenheiro Civil</div></div>
+    </div>
+    <span class="tag" style="margin-top:22mm;align-self:flex-start;background:rgba(245,179,1,.12);border-color:rgba(245,179,1,.45);color:#f5b301">Proposta comercial</span>
+    <h1 style="margin-top:5mm">Site profissional +<br/>presença no <span>Google</span></h1>
+    <p class="sub">Um site rápido, moderno e pronto para transformar quem pesquisa por engenharia civil em São Paulo em pedidos de orçamento direto no seu WhatsApp.</p>
+
+    <div class="mock">
+      <div class="bar"><i></i><i></i><i></i><span class="url">vinicius-rael.vercel.app</span></div>
+      <img src="assets/desk-hero.jpg" alt="Prévia do site" />
+    </div>
+
+    <div class="meta">
+      <div><small>Preparada para</small><b>Vinícius Rael</b><br/><span class="small" style="color:#94a3b8">Engenheiro Civil</span></div>
+      <div><small>Data</small><b>05 de novembro de 2026</b></div>
+      <div><small>Validade</small><b>15 dias</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. RACIOCÍNIO ============ -->
+<section class="page">
+  <div class="top"><b>Proposta · Vinícius Rael</b><span>01 — Linha de raciocínio</span></div>
+  <span class="tag">O cenário</span>
+  <h2>Seu cliente já está procurando.<br/>A questão é <span class="gold">quem ele encontra.</span></h2>
+  <p class="lead">Hoje sua presença digital é o Instagram — com identidade visual forte e bem posicionada, mas ainda recente (2 publicações, 16 seguidores). O Instagram é ótimo para <b>relacionamento</b>, mas quem precisa de um engenheiro com urgência não rola o feed: <b>pesquisa no Google</b>.</p>
+
+  <div class="cards c3" style="margin-top:7mm">
+    <div class="card soft"><div class="num">1</div><h3>Ser encontrado</h3><p class="small">Buscas como “engenheiro civil perto de mim” e “orçamento de obra SP” acontecem todos os dias. Sem site, você não aparece nelas.</p></div>
+    <div class="card soft"><div class="num">2</div><h3>Passar confiança</h3><p class="small">Obra envolve dinheiro alto. Antes de chamar, o cliente quer ver um profissional estruturado — o site faz esse papel 24h por dia.</p></div>
+    <div class="card soft"><div class="num">3</div><h3>Converter em contato</h3><p class="small">Cada página leva a um único objetivo: abrir o seu WhatsApp com uma mensagem pronta, sem atrito.</p></div>
+  </div>
+
+  <h3 style="margin-top:10mm">Como o cliente chega até você</h3>
+  <p class="small">Todos os canais apontam para o site, e o site aponta para o WhatsApp.</p>
+  <div class="flow">
+    <div class="step"><b>Google</b><span>busca orgânica + anúncios</span></div>
+    <div class="step"><b>Instagram</b><span>link na bio e posts</span></div>
+    <div class="arr">→</div>
+    <div class="step g"><b>Site</b><span>credibilidade e serviços</span></div>
+    <div class="arr">→</div>
+    <div class="step w"><b>WhatsApp</b><span>mensagem automática</span></div>
+    <div class="arr">→</div>
+    <div class="step"><b>Orçamento</b><span>visita e fechamento</span></div>
+  </div>
+
+  <div class="callout" style="margin-top:8mm">
+    <b>A lógica é simples:</b> um único contrato de obra fechado a partir do site já paga o investimento muitas vezes. O site não é um gasto de vitrine — é o ponto central que junta Google, Instagram e WhatsApp num só funil de vendas.
+  </div>
+
+  <div class="cards c2" style="margin-top:8mm">
+    <div class="card"><h3>Sem site</h3><ul class="check x"><li>Invisível nas buscas do Google</li><li>Depende só do alcance do Instagram</li><li>Cliente compara e escolhe quem aparece primeiro</li></ul></div>
+    <div class="card" style="border-color:#f5d77a"><h3 class="gold">Com o site</h3><ul class="check"><li>Aparece para quem já quer contratar</li><li>Imagem profissional e confiável</li><li>Contatos chegam prontos no WhatsApp</li></ul></div>
+  </div>
+  <div class="foot"><span>Proposta comercial — Site Vinícius Rael</span><span>2</span></div>
+</section>
+
+<!-- ============ 3. O SITE ============ -->
+<section class="page">
+  <div class="top"><b>Proposta · Vinícius Rael</b><span>02 — O site</span></div>
+  <span class="tag">O que entregamos</span>
+  <h2>O site já está pronto. <span class="gold">Veja funcionando.</span></h2>
+  <p class="lead">Desenvolvemos uma versão completa com base na identidade visual do seu Instagram (azul-escuro e dourado), para você avaliar antes de decidir.</p>
+
+  <div class="linkbox">
+    <div><div style="font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;color:#94a3b8;margin-bottom:1mm">Acesse a prévia</div>
+      <a href="https://vinicius-rael.vercel.app">vinicius-rael.vercel.app</a></div>
+    <span class="badge">Link de teste</span>
+  </div>
+  <p class="small" style="margin-top:2mm">* Endereço provisório, apenas para avaliação. Após a aprovação, o site é publicado no endereço definitivo (ex.: <b>viniciusrael.com.br</b>).</p>
+
+  <div class="shots">
+    <div>
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="assets/desk-servicos.jpg" alt="Seção de serviços" /></div>
+    </div>
+    <div>
+      <div class="phone"><img src="assets/mob-hero.jpg" alt="Versão celular" /></div>
+      <p class="small" style="text-align:center;margin-top:2mm">Versão celular</p>
+    </div>
+  </div>
+
+  <div class="cards c3" style="margin-top:6mm">
+    <div class="card"><div class="icon">⚡</div><h3>Moderno e animado</h3><p class="small">Animações suaves, carregamento rápido e adaptado a celular, tablet e computador.</p></div>
+    <div class="card"><div class="icon" style="background:#25d366;color:#fff">✆</div><h3>WhatsApp integrado</h3><p class="small">Botão flutuante e formulário que já enviam a mensagem pronta para o seu número.</p></div>
+    <div class="card"><div class="icon">G</div><h3>Pronto para o Google</h3><p class="small">SEO técnico, dados estruturados, sitemap e cadastro no Google Search Console.</p></div>
+  </div>
+  <div class="foot"><span>Proposta comercial — Site Vinícius Rael</span><span>3</span></div>
+</section>
+
+<!-- ============ 4. MARKETING ============ -->
+<section class="page">
+  <div class="top"><b>Proposta · Vinícius Rael</b><span>03 — Estratégia de marketing</span></div>
+  <span class="tag">Marketing</span>
+  <h2>Como vamos trazer <span class="gold">clientes</span> para o site</h2>
+  <p class="lead">O site é a base. Em cima dele, combinamos três frentes: aparecer de graça no Google, acelerar com anúncios e usar o Instagram como vitrine.</p>
+
+  <div class="cards c2" style="margin-top:5mm">
+    <div class="card soft">
+      <div class="icon">1</div><h3>SEO local — aparecer de graça</h3>
+      <ul class="check">
+        <li>Site indexado no Google (Search Console + sitemap)</li>
+        <li>Textos otimizados para buscas de engenharia em SP</li>
+        <li>Orientação para o <b>Perfil da Empresa no Google</b> (Google Maps)</li>
+        <li>Estratégia de avaliações de clientes no Google</li>
+      </ul>
+    </div>
+    <div class="card soft">
+      <div class="icon">2</div><h3>Google Ads — resultado rápido</h3>
+      <ul class="check">
+        <li>Campanha de pesquisa para quem busca contratar agora</li>
+        <li>Segmentação por região (São Paulo e cidades próximas)</li>
+        <li>Conversão medida: cada clique no WhatsApp é contado</li>
+        <li>Verba flexível — você decide quanto investir</li>
+      </ul>
+    </div>
+    <div class="card soft">
+      <div class="icon">3</div><h3>Instagram como vitrine</h3>
+      <ul class="check">
+        <li>Link do site na bio e nos destaques</li>
+        <li>Conteúdos: antes/depois, bastidores de obra, dicas</li>
+        <li>Posts sempre com chamada para o WhatsApp</li>
+      </ul>
+    </div>
+    <div class="card soft">
+      <div class="icon" style="background:#25d366;color:#fff">✆</div><h3>WhatsApp que vende</h3>
+      <ul class="check">
+        <li>Mensagem automática já indica o serviço desejado</li>
+        <li>Sugestão de WhatsApp Business com respostas rápidas</li>
+        <li>Roteiro simples de atendimento até a visita técnica</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:5mm">Palavras-chave sugeridas para os anúncios</h3>
+  <div class="kw">
+    <span>engenheiro civil são paulo</span><span>engenheiro civil perto de mim</span><span>orçamento de obra</span><span>gestão de obras</span><span>acompanhamento de obra</span><span>engenheiro para reforma</span><span>planejamento de obra</span><span>consultoria engenharia civil</span><span>contratar engenheiro civil</span>
+  </div>
+
+  <h3 style="margin-top:5mm">Plano de ação</h3>
+  <div class="timeline">
+    <div class="t"><small>Semana 1</small><h3 style="margin-top:1mm">Lançamento</h3><p class="small">Site no ar no endereço definitivo, indexação no Google e link no Instagram.</p></div>
+    <div class="t"><small>Semanas 2–4</small><h3 style="margin-top:1mm">Aceleração</h3><p class="small">Ativação do Google Ads e do Perfil da Empresa no Google. Primeiros contatos medidos.</p></div>
+    <div class="t"><small>Mês 2 em diante</small><h3 style="margin-top:1mm">Otimização</h3><p class="small">Ajuste de palavras-chave e anúncios pelo que gera mais orçamentos, com custo menor.</p></div>
+  </div>
+  <div class="foot"><span>Proposta comercial — Site Vinícius Rael</span><span>4</span></div>
+</section>
+
+<!-- ============ 5. INVESTIMENTO ============ -->
+<section class="page">
+  <div class="top"><b>Proposta · Vinícius Rael</b><span>04 — Investimento</span></div>
+  <span class="tag">Investimento</span>
+  <h2>Um valor único. <span class="gold">Sem mensalidade.</span></h2>
+  <p class="lead">Você paga uma vez e o site é seu, com suporte para sempre.</p>
+
+  <div class="price" style="margin-top:5mm">
+    <div>
+      <div style="font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:#94a3b8;margin-bottom:3mm">Site profissional completo</div>
+      <div class="val"><sup>R$</sup>450</div>
+      <div class="pill">Pagamento único</div>
+      <p style="font-size:9pt;color:#cbd5e1;margin-top:6mm">Sem taxa mensal de manutenção.<br/>Suporte <b style="color:#fff">all-time</b> incluso.</p>
+    </div>
+    <div>
+      <ul class="check">
+        <li>Site completo, entregue pronto e no ar</li>
+        <li>Design exclusivo com animações e versão celular</li>
+        <li>Botão flutuante e formulário para o WhatsApp</li>
+        <li>Indexação no Google (aparecer nas pesquisas)</li>
+        <li>SEO técnico, sitemap e dados estruturados</li>
+        <li>Parceria Google Ads: estruturação das campanhas</li>
+        <li>Suporte all-time: ajustes de texto, fotos, contatos e correções</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cards c2" style="margin-top:5mm">
+    <div class="card">
+      <h3>Cobrado à parte (somente se você quiser)</h3>
+      <p class="small" style="margin-bottom:1.5mm">Apenas <b>grandes alterações</b> futuras, orçadas antes:</p>
+      <ul class="check x"><li>Novas páginas ou seções completas</li><li>Redesign / mudança de identidade visual</li><li>Novas funcionalidades (blog, portfólio, área do cliente)</li></ul>
+    </div>
+    <div class="card">
+      <h3>Custos de terceiros (opcionais)</h3>
+      <ul class="check x">
+        <li><b>Verba de anúncios</b> — definida por você e paga direto ao Google</li>
+        <li><b>Domínio próprio</b> (.com.br) — registro anual no Registro.br, em nome do cliente</li>
+        <li>Hospedagem do site: <b>sem custo</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:5mm">Próximos passos</h3>
+  <div class="steps3" style="margin-top:3mm">
+    <div class="card soft"><div class="num">1</div><h3>Avalie a prévia</h3><p class="small">Navegue pelo link de teste e anote o que quiser ajustar.</p></div>
+    <div class="card soft"><div class="num">2</div><h3>Aprovação</h3><p class="small">Ajustes finais, fotos reais das suas obras e pagamento.</p></div>
+    <div class="card soft"><div class="num">3</div><h3>No ar e no Google</h3><p class="small">Publicação no endereço definitivo e início do marketing.</p></div>
+  </div>
+
+  <div class="cta">
+    <div><h3 style="font-size:13pt">Vamos colocar sua engenharia no Google?</h3><p class="small">Responda esta proposta pelo WhatsApp para darmos início.</p></div>
+    <span class="badge" style="font-size:8pt;padding:1.5mm 4mm">Válida por 15 dias</span>
+  </div>
+  <div class="foot"><span>Proposta comercial — Site Vinícius Rael</span><span>5</span></div>
+</section>
+
+</body>
+</html>
